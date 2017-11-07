@@ -13,6 +13,15 @@ airflow:
   image_pull_policy: Always
   # Set scheduler_num_runs to -1 to loop indefinitively
   scheduler_num_runs: "-1"
+  executor: ""
+
+kubernetes:
+  worker:
+    image: ""
+    tag: ""
+    namespace: ""
+    serviceaccount: ""
+    imagepullsecrets: ""
 
 celery:
   num_workers: 1

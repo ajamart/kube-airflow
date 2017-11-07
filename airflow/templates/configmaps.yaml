@@ -27,3 +27,10 @@ data:
   GIT_SYNC_DEBUG: "{{ .Values.dags.git_sync_debug }}"
   {{ end }}
   LOAD_DAGS_EXAMPLES: "{{ .Values.dags.load_examples }}"
+  {{- if .Values.airflow.executor == "LocalExecutor" }}
+  KUBERNETES_WORKER_IMAGE: "{{ .Values.kubernetes.worker.image }}"
+  KUBERNETES_WORKER_IMAGE_TAG: "{{ .Values.kubernetes.worker.image.tag }}"
+  KUBERNETES_WORKER_NAMESPACE: "{{ .Values.kubernetes.worker.namespace }}"
+  KUBERNETES_WORKER_SERVICEACCOUNT: "{{ .Values.kubernetes.serviceaccount }}"
+  KUBERNETES_WORKER_SECRETS: "{{ .Values.kubernetes.imagepullsecrets }}"
+  {{ end }}

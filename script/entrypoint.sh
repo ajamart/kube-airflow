@@ -30,6 +30,11 @@ sed -i "s/{{ POSTGRES_CREDS }}/${RABBITMQ_CREDS}/" $AIRFLOW_HOME/airflow.cfg
 sed -i "s/{{ RABBITMQ_HOST }}/${RABBITMQ_HOST}/" $AIRFLOW_HOME/airflow.cfg
 sed -i "s/{{ RABBITMQ_CREDS }}/${RABBITMQ_CREDS}/" $AIRFLOW_HOME/airflow.cfg
 sed -i "s/{{ LOAD_DAGS_EXAMPLES }}/${LOAD_DAGS_EXAMPLES}/" $AIRFLOW_HOME/airflow.cfg
+sed -i "s/{{ KUBERNETES_WORKER_IMAGE }}/${KUBERNETES_WORKER_IMAGE}/" $AIRFLOW_HOME/airflow.cfg
+sed -i "s/{{ KUBERNETES_WORKER_IMAGE_TAG }}/${KUBERNETES_WORKER_IMAGE}/" $AIRFLOW_HOME/airflow.cfg
+sed -i "s/{{ KUBERNETES_WORKER_NAMESPACE }}/${KUBERNETES_WORKER_NAMESPACE}/" $AIRFLOW_HOME/airflow.cfg
+sed -i "s/{{ KUBERNETES_WORKER_SERVICEACCOUNT }}/${KUBERNETES_WORKER_SERVICEACCOUNT}/" $AIRFLOW_HOME/airflow.cfg
+sed -i "s/{{ KUBERNETES_WORKER_SECRETS }}/${KUBERNETES_WORKER_SECRETS}/" $AIRFLOW_HOME/airflow.cfg
 
 # wait for rabbitmq
 if [ "$1" = "webserver" ] || [ "$1" = "worker" ] || [ "$1" = "scheduler" ] || [ "$1" = "flower" ] ; then
